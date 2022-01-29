@@ -1,5 +1,4 @@
 import pygame as pg
-import random
 import pixlib as pl
 import pixlibAlphabet as plalpha
 
@@ -25,15 +24,10 @@ def main(size):
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_ESCAPE: #if Esc Pressed
                     go = False
-        
-        #if sortarray
 
         #DRAW ALL YOUR OBJECTS HERE (THE LAST DRAWN WILL BE AT THE 'FRONT')
         pl.drawBasicBG(pixlib.window,pixlib.pixels,windowWidth,windowHeight,size,black)
-        plalpha.debugDRAWALL(pixlib.window,pixlib.pixels,)
         
-        
-
         pg.display.flip()
 
 main(5)
