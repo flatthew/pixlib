@@ -10,22 +10,6 @@ white = 255,255,255,255
 terminalGreen = 0,255,0,255
 black = 0,0,0,255
 
-def generateRandomArray():
-    array = []
-    for i in range(1,101):
-        array.append[i]
-    array = random.shuffle(array)
-    return array
-
-def bubbleSort(array):
-    for x in range(0,(len(array)-1)): #goes through for the maximum number of passes
-        for i in range(0, len(array)-1): #main loop for the pass
-            if array[i] > array[i+1]: #checks if an item needs to be swapped
-                array[i],array[i+1] = array[i+1],array[i] #carries out swap
-            else:
-                pass
-    return array
-
 def main(size):
     pg.init()
     pixlib = pl.pixlib(windowWidth,windowHeight,size)
