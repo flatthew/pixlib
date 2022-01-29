@@ -1,6 +1,6 @@
 import pygame as pg
 import random
-from pixlib import *
+import pixlib as pl
 from pixlibAlphabet import drawChar
 windowWidth = 500
 windowHeight = 500
@@ -22,7 +22,7 @@ class paddle():
             for x in range(self.pos[1], self.pos[1] + self.length//pixelsize, 1):
                 print('i'+str(i)+'x'+str(x))
                 print(len(pixels))
-                legacyUpdatePixel(screen,pixels[i][x],white)
+                pl.legacyUpdatePixel(screen,pixels[i][x],white)
 
     def updatePaddle(self,dir,windowHeight,pixelsize):
             if self.pos[1] == (windowHeight//pixelsize) - (self.length//pixelsize) - 1 and dir == 1:
@@ -47,7 +47,7 @@ def drawUI(screen,pixels,windowWidth,windowHeight,size,p1score,p2score):
         if i%4 == 0:
             pass
         else:
-            legacyUpdatePixel(screen,pixels[windowWidth//(size*2)][i],white)
+            pl.legacyUpdatePixel(screen,pixels[windowWidth//(size*2)][i],white)
     p1score = str(p1score)
     if len(p1score) > 1:
         p1score.split()
@@ -58,9 +58,10 @@ def drawUI(screen,pixels,windowWidth,windowHeight,size,p1score,p2score):
     
 def pong(size):
     pg.init()
+    
     screen = pg.display.set_mode((windowWidth, windowHeight))
-    pg.display.set_caption('Pong')
-    pixels = initWindow(windowWidth,windowHeight,size,black)
+    pixlib = pl.pixlib(windowWidth,windowHeight,size)
+    pg.display.set_caption('Pong') 
     paddlesize = 10
     paddles = [paddle([1,10],paddlesize,paddlesize*6,white),paddle([windowWidth//(size) - 1 - (paddlesize//size),10],paddlesize,paddlesize*6,white)]
     
@@ -86,11 +87,11 @@ def pong(size):
             paddles[0].updatePaddle(1,windowHeight,size)
         
         
-        drawBG(screen,pixels,windowWidth,windowHeight,size,black)
-        drawUI(screen,pixels,windowWidth,windowHeight,size,paddles[0].score,paddles[1].score)
+        pl.drawBasicBG(pixlib.window,pixlib.pixels,windowWidth,windowHeight,size,black)
+        drawUI(screen,pixlib.pixels,windowWidth,windowHeight,size,paddles[0].score,paddles[1].score)
         
         for i in range(0,len(paddles)):
-            paddles[i].drawPaddle(screen,pixels,size)
+            paddles[i].drawPaddle(screen,pixlib.pixels,size)
         
         pg.display.flip()
 

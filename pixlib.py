@@ -25,7 +25,6 @@ class pixlib():
         self.pixarrayDim = [windowWidth/pixelsize,windowHeight/pixelsize]
         self.pixels = self.initPixelarray
         self.window = pg.display.set_mode((windowWidth, windowHeight))
-        pg.display.set_caption('pixlib')
 
     def initPixelarray(self):
         pixels = []
