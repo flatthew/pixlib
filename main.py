@@ -17,7 +17,6 @@ def generateRandomArray():
     array = random.shuffle(array)
     return array
 
-
 def bubbleSort(array):
     for x in range(0,(len(array)-1)): #goes through for the maximum number of passes
         for i in range(0, len(array)-1): #main loop for the pass
@@ -27,28 +26,10 @@ def bubbleSort(array):
                 pass
     return array
 
-#def drawArray(screen,array,pixels,operation,currentpoint):
-#    for i in range(len(array)):
-#        if i == currentpoint:
-#            if operation == 'compare':
-#                for x in range(array[i]):
-#                    pixels[i][x].updatePixel(screen,(0,255,0))
-#            elif operation == 'swap':
-#                for x in range(array[i]):
-#                    pixels[i][x].updatePixel(screen,(255,0,0))
-#        else:
-#            for x in range(array[i]):
-#                    pixels[i][x].updatePixel(screen,(0,0,255))
-
-
 def main(size):
     pg.init()
     pixlib = pl.pixlib(windowWidth,windowHeight,size)
     go = True
-
-    sortarray = generateRandomArray()
-    i = 0
-    x = 0
 
     while go ==True:
         ##ALL LOGIC HERE
