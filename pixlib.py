@@ -62,10 +62,16 @@ class pixlibObject():
         self.visualStates = kwargs
 
     def addState(self,statename,statearray):
-        self.visualStates[statename] = statearray
+        if self.visualStates.get(statename,-1) != -1:
+            raise ValueError('A State by this name already exists.')
+        else:
+            self.visualStates[statename] = statearray
     
     def removeState(self,statename):
-        pass
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('There is no state by this name, and therefore it cannot be removed.')
+        else:
+            self.visualStates.pop(statename)
 
     def updatePos(self,screen,pixels,aposition):
         self.x, self.y = aposition
