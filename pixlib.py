@@ -15,7 +15,7 @@ class pixel(pg.sprite.Sprite):
         self.image.fill(acolour)
         if len(acolour) == 4:
             self.r,self.g,self.b,self.a = acolour
-        else:
+        elif len(acolour) == 3:
             self.r,self.g,self.b = acolour
         canvas.blit(self.image,self.Rect)
 
@@ -25,6 +25,7 @@ class pixlib():
         self.pixarrayDim = [windowWidth/pixelsize,windowHeight/pixelsize]
         self.pixels = self.initPixelarray
         self.window = pg.display.set_mode((windowWidth, windowHeight))
+        self.pixelsize = pixelsize
 
     def initPixelarray(self):
         pixels = []
@@ -34,6 +35,11 @@ class pixlib():
                 column.append(pixel(i,x,self.pixelsize,(0,0,0,255)))
             pixels.append(column)
         return pixels
+
+    def drawBasicBG(self,colour):
+        for i in range(0,self.pixarrayDim[0]):
+            for x in range(0,self.pixarrayDim[1]):
+                self.pixels[i][x].updatePixel(self.window,colour)
 
 def legacyUpdatePixel(canvas,pixel,acolour):
     pixel.image.fill(color=acolour)

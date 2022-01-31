@@ -1,3 +1,7 @@
+import pixlib as pl
+import pygame as pg
+import pixlibAlphabet as plalpha
+
 def drawArray(screen,array,pixels,operation,currentpoint):
     for i in range(len(array)):
         if i == currentpoint:
