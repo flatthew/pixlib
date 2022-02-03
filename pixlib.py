@@ -26,7 +26,7 @@ class pixlib():
         self.pixels = self.initPixelarray
         self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
-        self.visualstates = {}
+        self.visualStates = {}
 
     def initPixelarray(self):
         pixels = []
