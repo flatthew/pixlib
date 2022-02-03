@@ -27,6 +27,7 @@ class pixlib():
         self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
         self.visualStates = {}
+        self.currentState = ''
 
     def initPixelarray(self):
         pixels = []
@@ -44,15 +45,29 @@ class pixlib():
 
     def addState(self,statename,statearray):
         if self.visualStates.get(statename,-1) != -1:
-            raise ValueError('A State by this name already exists.')
+            raise ValueError('State ' + statename + ' already exists.')
         else:
             self.visualStates[statename] = statearray
     
     def removeState(self,statename):
         if self.visualStates.get(statename,-1) == -1:
-            raise ValueError('There is no state by this name, and therefore it cannot be removed.')
+            raise ValueError('There is no state called \''+ statename +'\' and therefore it cannot be removed.')
         else:
             self.visualStates.pop(statename)
+
+    def switchState(self,statename):
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('No such state as ' + statename)
+        else:
+            self.currentState = statename
+
+    def alterState(self,statename,newStateVal):
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('No such state as ' + statename)
+        elif type(newStateVal) != list and type(newStateVal) != tuple:
+            raise ValueError('State in invalid format')
+        else:
+            self.visualStates[statename] = newStateVal
 
     def draw(self,screen,pixels):
         for a in range(len(self.visualStates[self.currentState])):
@@ -83,18 +98,33 @@ class pixlibObject():
         self.height = aheight
         self.width = awidth
         self.visualStates = kwargs
+        self.currentState = ''
 
     def addState(self,statename,statearray):
         if self.visualStates.get(statename,-1) != -1:
-            raise ValueError('A State by this name already exists.')
+            raise ValueError('State ' + statename + ' already exists.')
         else:
             self.visualStates[statename] = statearray
     
     def removeState(self,statename):
         if self.visualStates.get(statename,-1) == -1:
-            raise ValueError('There is no state by this name, and therefore it cannot be removed.')
+            raise ValueError('There is no state called \''+ statename +'\' and therefore it cannot be removed.')
         else:
             self.visualStates.pop(statename)
+
+    def switchState(self,statename):
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('No such state as ' + statename)
+        else:
+            self.currentState = statename
+
+    def alterState(self,statename,newStateVal):
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('No such state as ' + statename)
+        elif type(newStateVal) != list and type(newStateVal) != tuple:
+            raise ValueError('State in invalid format')
+        else:
+            self.visualStates[statename] = newStateVal
 
     def updatePos(self,screen,pixels,aposition):
         self.x, self.y = aposition
