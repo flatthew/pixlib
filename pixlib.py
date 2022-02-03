@@ -26,6 +26,7 @@ class pixlib():
         self.pixels = self.initPixelarray
         self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
+        self.visualstates = {}
 
     def initPixelarray(self):
         pixels = []
@@ -40,6 +41,28 @@ class pixlib():
         for i in range(0,self.pixarrayDim[0]):
             for x in range(0,self.pixarrayDim[1]):
                 self.pixels[i][x].updatePixel(self.window,colour)
+
+    def addState(self,statename,statearray):
+        if self.visualStates.get(statename,-1) != -1:
+            raise ValueError('A State by this name already exists.')
+        else:
+            self.visualStates[statename] = statearray
+    
+    def removeState(self,statename):
+        if self.visualStates.get(statename,-1) == -1:
+            raise ValueError('There is no state by this name, and therefore it cannot be removed.')
+        else:
+            self.visualStates.pop(statename)
+
+    def draw(self,screen,pixels):
+        for a in range(len(self.visualStates[self.currentState])):
+            for b in range(len(self.visualStates[self.currentState][a])):
+                linepos = 0
+                if self.visualStates[self.currentState][a][b][1] == None:
+                    linepos = linepos+self.visualStates[self.currentState][a][b][0]
+                else:
+                    for c in range(self.visualStates[self.currentState][a][b][0]):
+                        pixels[self.x+linepos][self.y+a].updatePixel(screen,self.visualStates[self.currentState][a][b][1])
 
 def legacyUpdatePixel(canvas,pixel,acolour):
     pixel.image.fill(color=acolour)
