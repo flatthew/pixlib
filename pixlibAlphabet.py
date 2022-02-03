@@ -62,6 +62,7 @@ class pixlibChar(pixlibObject):
                 [[1,self.colour],[3,None]]
             ]
         }
+        self.currentState = str(achar)
 
 
 
