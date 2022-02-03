@@ -1,9 +1,9 @@
 from pixlib import legacyUpdatePixel, pixlibObject
 
 class pixlibChar(pixlibObject):
-    def __init__(self, aposition, aheight, awidth, **kwargs):
-        
-        super().__init__(aposition, aheight, awidth, **kwargs)
+    def __init__(self, aposition, aheight, awidth, acolour):
+        self.colour = acolour
+        super().__init__(aposition, aheight, awidth)
 
 def about(specific = ''):
     if specific == '':
