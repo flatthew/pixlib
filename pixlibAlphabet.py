@@ -2,9 +2,68 @@ from pixlib import pixlibObject
 from legacySubroutines import legacyUpdatePixel
 
 class pixlibChar(pixlibObject):
-    def __init__(self, aposition, aheight, awidth, acolour):
+    def __init__(self, achar, aposition, acolour):
         self.colour = acolour
-        super().__init__(aposition, aheight, awidth)
+        super().__init__(aposition, 7, 4)
+        self.char = achar
+        self.visualStates = {
+            'A': [
+                [[1,None],[2,self.colour],[1,None]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[4,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]]
+            ],
+            'B': [
+                [[3,self.colour],[1,None]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[3,self.colour],[1,None]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[3,self.colour],[1,None]]
+            ],
+            'C': [
+                [[1,None],[3,self.colour]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[1,None],[3,self.colour]]
+            ],
+            'D': [
+                [[3,self.colour],[1,None]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[1,self.colour],[2,None],[1,self.colour]],
+                [[3,self.colour],[1,None]]
+            ],
+            'E': [
+                [[4,self.colour]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[4,self.colour]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[4,self.colour]]
+            ],
+            'F': [
+                [[4,self.colour]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[4,self.colour]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]],
+                [[1,self.colour],[3,None]]
+            ]
+        }
+
+
 
 def about(specific = ''):
     if specific == '':
