@@ -28,6 +28,8 @@ class pixlib():
         self.pixelsize = pixelsize
         self.visualStates = {}
         self.currentState = ''
+        self.x = 0
+        self.y = 0
 
     def initPixelarray(self):
         pixels = []
