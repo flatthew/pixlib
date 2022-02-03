@@ -1,4 +1,5 @@
-from pixlib import legacyUpdatePixel, pixlibObject
+from pixlib import pixlibObject
+from legacySubroutines import legacyUpdatePixel
 
 class pixlibChar(pixlibObject):
     def __init__(self, aposition, aheight, awidth, acolour):

@@ -81,14 +81,6 @@ class pixlib():
                     for c in range(self.visualStates[self.currentState][a][b][0]):
                         pixels[self.x+linepos][self.y+a].updatePixel(screen,self.visualStates[self.currentState][a][b][1])
 
-def legacyUpdatePixel(canvas,pixel,acolour):
-    pixel.image.fill(color=acolour)
-    if len(acolour) == 4:
-        pixel.r,pixel.g,pixel.b,pixel.a = acolour
-    else:
-        pixel.r,pixel.g,pixel.b = acolour
-    canvas.blit(pixel.image,pixel.Rect)
-
 def drawBasicBG(screen,pixels,windowWidth,windowHeight,size,colour):
     for i in range(0,windowWidth//size):
         for x in range(0,windowHeight//size):
