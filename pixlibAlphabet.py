@@ -1,70 +1,210 @@
 from pixlib import pixlibObject
 from legacySubroutines import legacyUpdatePixel
 
-class pixlibChar(pixlibObject):
-    def __init__(self, achar, aposition, acolour):
-        self.colour = acolour
-        super().__init__(aposition, 7, 4)
-        self.char = achar
-        self.visualStates = {
+munro= {
             'A': [
-                [[1,None],[2,self.colour],[1,None]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[4,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]]
+                [[1,None],[2,'c'],[1,None]],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[4,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']]
             ],
             'B': [
-                [[3,self.colour],[1,None]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[3,self.colour],[1,None]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[3,self.colour],[1,None]]
+                [[3,'c'],[1,None]],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[3,'c'],[1,None]],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[3,'c'],[1,None]]
             ],
             'C': [
-                [[1,None],[3,self.colour]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[1,None],[3,self.colour]]
+                [[1,None],[3,'c']],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,None],[3,'c']]
             ],
             'D': [
-                [[3,self.colour],[1,None]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[1,self.colour],[2,None],[1,self.colour]],
-                [[3,self.colour],[1,None]]
+                [[3,'c'],[1,None]],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[3,'c'],[1,None]]
             ],
             'E': [
-                [[4,self.colour]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[4,self.colour]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[4,self.colour]]
+                [[4,'c']],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[4,'c']],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[4,'c']]
             ],
             'F': [
-                [[4,self.colour]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[4,self.colour]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]],
-                [[1,self.colour],[3,None]]
-            ]
+                [[4,'c']],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[4,'c']],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]]
+            ],
+            'G': [
+                [[1,None],[2,'c'],[1,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[1,None],[2,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,None],[2,'c'],[1,None]]
+            ],
+            'H': [
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[4,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']]
+            ],
+            'I': [
+                [[3,'c']],
+                [[1,None],[1,'c'],[1,None]],
+                [[1,None],[1,'c'],[1,None]],
+                [[1,None],[1,'c'],[1,None]],
+                [[1,None],[1,'c'],[1,None]],
+                [[1,None],[1,'c'],[1,None]],
+                [[3,'c']]
+            ],
+            'J': [
+                [[4,'c']],
+                [[2,None],[1,'c'],[1,None]],
+                [[2,None],[1,'c'],[1,None]],
+                [[2,None],[1,'c'],[1,None]],
+                [[2,None],[1,'c'],[1,None]],
+                [[1,'c'],[1,None],[1,'c'],[1,None]],
+                [[1,None],[1,'c'],[2,None]]
+            ],
+            'K': [
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[1,None],[1,'c'],[1,None]],
+                [[1,'c'],[1,None],[1,'c'],[1,None]],
+                [[2,'c'],[2,None]],
+                [[1,'c'],[1,None],[1,'c'],[1,None]],
+                [[1,'c'],[1,None],[1,'c'],[1,None]],
+                [[1,'c'],[2,None],[1,'c']],
+                [[1,'c'],[2,None],[1,'c']]
+            ],
+            'L': [
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[1,'c'],[3,None]],
+                [[3,'c']]
+            ],
+            'M': [
+                [[1,'c'],[3,None],[1,'c']],
+                [[2,'c'],[1,None],[2,'c']],
+                [[1,'c'],[1,None],[1,'c'],[1,None],[1,'c']],
+                [[1,'c'],[3,None],[1,'c']],
+                [[1,'c'],[3,None],[1,'c']],
+                [[1,'c'],[3,None],[1,'c']],
+                [[1,'c'],[3,None],[1,'c']]
+            ],    
+            'N': '',
+            'O': '',
+            'P': '',
+            'Q': '',
+            'R': '',
+            'S': '',
+            'T': '',
+            'U': '',
+            'V': '',
+            'X': '',
+            'Y': '',
+            'Z': '',
+            'a': '',
+            'b': '',
+            'c': '',
+            'd': '',
+            'e': '',
+            'f': '',
+            'g': '',
+            'h': '',
+            'i': '',
+            'j': '',
+            'k': '',
+            'l': '',
+            'm': '',
+            'o': '',
+            'p': '',
+            'q': '',
+            'r': '',
+            's': '',
+            't': '',
+            'u': '',
+            'v': '',
+            'w': '',
+            'x': '',
+            'y': '',
+            'z': '',
+            '.': '',
+            ',': '',
+            '\'': '',
+            '"': '',
+            '<': '',
+            '>': '',
+            '^': '',
+            ':': '',
+            ';': '',
+            '!': '',
+            '?': '',
+            '@': '',
+            '£': '',
+            '€': '',
+            '#': '',
+            '$': '',
+            '%': '',
+            '&': '',
+            '*': '',
+            '(': '',
+            ')': '',
+            '[': '',
+            ']': '',
+            '{': '',
+            '}': '',
+            '+': '',
+            '-': '',
+            '_': '',
+            '=': '',
+            '/': '',
+            '\\': '',
+            '~': ''
         }
-        self.currentState = str(achar)
 
+fontOptions = {
+    'munro': munro
+}
 
+class pixlibChar(pixlibObject):
+    def __init__(self, achar, aposition, acolour,font='munro'):
+        self.colour = acolour
+        super().__init__(aposition, 7, 4)
+        self.visualStates = fontOptions[font] #add validation here
+        if self.visualStates.get(achar,-1) != -1:
+            self.currentState = str(achar)
+        else:
+            raise ValueError('Character ' + achar + ' ')
 
 def about(specific = ''):
     if specific == '':

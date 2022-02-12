@@ -22,8 +22,9 @@ class pixel(pg.sprite.Sprite):
 class pixlib():
     def __init__(self,windowWidth,windowHeight,pixelsize):
         self.windowDim = [windowWidth,windowHeight]
-        self.pixarrayDim = [windowWidth/pixelsize,windowHeight/pixelsize]
-        self.pixels = self.initPixelarray
+        self.pixarrayDim = [windowWidth//pixelsize,windowHeight//pixelsize]
+        self.pixelsize = pixelsize
+        self.pixels = self.initPixelarray()
         self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
         self.visualStates = {}
