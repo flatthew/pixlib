@@ -71,7 +71,7 @@ class pixlib():
         else:
             self.visualStates[statename] = newStateVal
 
-    def draw(self,screen,pixels):
+    def drawStateBG(self):
         for a in range(len(self.visualStates[self.currentState])):
             for b in range(len(self.visualStates[self.currentState][a])):
                 linepos = 0
@@ -79,12 +79,7 @@ class pixlib():
                     linepos = linepos+self.visualStates[self.currentState][a][b][0]
                 else:
                     for c in range(self.visualStates[self.currentState][a][b][0]):
-                        pixels[self.x+linepos][self.y+a].updatePixel(screen,self.visualStates[self.currentState][a][b][1])
-
-def drawBasicBG(screen,pixels,windowWidth,windowHeight,size,colour):
-    for i in range(0,windowWidth//size):
-        for x in range(0,windowHeight//size):
-            pixels[i][x].updatePixel(screen,colour)
+                        self.pixels[self.x+linepos][self.y+a].updatePixel(self.window,self.visualStates[self.currentState][a][b][1])
 
 class pixlibObject():
     def __init__(self,aposition,aheight,awidth,**kwargs):
