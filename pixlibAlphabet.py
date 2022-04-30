@@ -195,7 +195,7 @@ fontOptions = {
     'munro': munro
 }
 
-class pixlibChar(pl.pixlibObject):
+class pixlibChar(pl.pix_sprite):
     def __init__(self, achar, aposition, acolour,font='munro'):
         self.colour = acolour
         super().__init__(aposition, 7, 4)

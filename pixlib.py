@@ -82,7 +82,7 @@ class pixlib():
                     for c in range(self.visualStates[self.currentState][a][b][0]):
                         self.pixels[self.x+linepos][self.y+a].updatePixel(self.window,self.visualStates[self.currentState][a][b][1])
 
-class pix_object():
+class pix_sprite():
     def __init__(self,aposition,aheight,awidth,**kwargs):
         self.x, self.y = aposition
         self.height = aheight
