@@ -1,1 +1,3 @@
 main_example.py
+__pycache__/
+.gitignore
