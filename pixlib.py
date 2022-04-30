@@ -24,7 +24,7 @@ class pixlib():
         self.windowDim = [windowWidth,windowHeight]
         self.pixarrayDim = [windowWidth//pixelsize,windowHeight//pixelsize]
         self.pixelsize = pixelsize
-        self.pixels = self.initPixelarray()
+        self.pixels = self.__initPixelarray__()
         self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
         self.visualStates = {}
@@ -32,7 +32,7 @@ class pixlib():
         self.x = 0
         self.y = 0
 
-    def initPixelarray(self):
+    def __initPixelarray__(self):
         pixels = []
         for i in range(0,self.windowDim[0],self.pixelsize):
             column = []
@@ -67,7 +67,7 @@ class pixlib():
     def alterState(self,statename,newStateVal):
         if self.visualStates.get(statename,-1) == -1:
             raise ValueError('No such state as ' + statename)
-        elif type(newStateVal) != list and type(newStateVal) != tuple:
+        elif type(newStateVal) != list or type(newStateVal) != tuple:
             raise ValueError('State in invalid format')
         else:
             self.visualStates[statename] = newStateVal
