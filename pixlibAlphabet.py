@@ -1,5 +1,4 @@
-from pixlib import pixlibObject
-from legacySubroutines import legacyUpdatePixel
+import pixlib as pl
 
 munro= {
             'A': [
@@ -196,7 +195,7 @@ fontOptions = {
     'munro': munro
 }
 
-class pixlibChar(pixlibObject):
+class pixlibChar(pl.pixlibObject):
     def __init__(self, achar, aposition, acolour,font='munro'):
         self.colour = acolour
         super().__init__(aposition, 7, 4)
@@ -245,289 +244,289 @@ def drawChar(char,screen,pixels,colour,initpos):
     
 def A(screen,pixels,initialx,initialy,colour):    
     for i in range(1,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
 
 def B(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
 
 def C(screen,pixels,initialx,initialy,colour):
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
 
 def D(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
 
 def E(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
 
 def F(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
 
 def G(screen,pixels,initialx,initialy,colour):   
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
 
 def H(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
 
 def I(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
 
 def J(screen,pixels,initialx,initialy,colour):
     for i in range(0,6):
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i],colour)
     for i in range(0,4):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+5],colour)
 
 def K(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+0],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+0],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
 
 def L(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
 
 def M(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
 
 def N(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
 
 def O(screen,pixels,initialx,initialy,colour):
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+6],colour)
 
 def P(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
 
 def Q(screen,pixels,initialx,initialy,colour):
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,5):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+5],colour)
 
 def R(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+1],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+5],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+6],colour)
 
 def S(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+1],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+5],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+1],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+5],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
 
 def T(screen,pixels,initialx,initialy,colour):
     for i in range(1,7):
-        legacyUpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
 
 def U(screen,pixels,initialx,initialy,colour):
     for i in range(0,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
 
 def V(screen,pixels,initialx,initialy,colour):
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+1][initialy+i+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i+5],colour)
 
 def W(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
 
 def X(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+5],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i+5],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i+5],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+4],colour)
 
 def Y(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+2],colour)
     for i in range(3,7):
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i],colour)
 
 def Zthree(screen,pixels,initialx,initialy,colour):
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+1],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+1],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+5],colour)
 
 def Zfive(screen,pixels,initialx,initialy,colour):
     for i in range(0,5):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
     for i in range(0,5):
-        legacyUpdatePixel(screen,pixels[initialx+4-i][initialy+i+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+4-i][initialy+i+1],colour)
 
 def a(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+4],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+5],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+5],colour)
     for i in range(3,7):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
 
 def b(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
 
 def c(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+2],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
 
 def d(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+2],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
 
 def e(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+4],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+3],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+3],colour)
 
 def f(screen,pixels,initialx,initialy,colour):
     for i in range(1,7):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
     for i in range(1,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
 
 def g():
     pass
@@ -591,86 +590,86 @@ def z():
 
 def one(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+i],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+1],colour)
 
 def two(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+1+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx][initialy+4+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+1+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+4+i],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3],colour)
 
 def three(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i+1],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i+4],colour)
 
 def four(screen,pixels,initialx,initialy,colour):
     for i in range(0,5):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i+2],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i+2],colour)
     for i in range(1,4):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+4],colour)
 
 def fourDiag(screen,pixels,initialx,initialy,colour):
     for i in range(0,7):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
     for i in range(0,5):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+4],colour)
-    legacyUpdatePixel(screen,pixels[initialx][initialy+3],colour)
-    legacyUpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
-    legacyUpdatePixel(screen,pixels[initialx+2][initialy+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+4],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+3],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+2],colour)
+    pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+1],colour)
 
 def five(screen,pixels,initialx,initialy,colour):
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+1+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+i+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+1+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+i+4],colour)
 
 def six(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+4],colour)
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i],colour)
 
 def seven(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+2][initialy+1+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+1][initialy+3+i],colour)
-        legacyUpdatePixel(screen,pixels[initialx+0][initialy+5+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+2][initialy+1+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+1][initialy+3+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+0][initialy+5+i],colour)
     for i in range(0,3):
-        legacyUpdatePixel(screen,pixels[initialx+i][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i][initialy],colour)
 
 def eight(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+1],colour)
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i+4],colour)
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+1],colour)
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i+4],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+4],colour)
 
 def nine(screen,pixels,initialx,initialy,colour):
     for i in range(0,2):
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
-        legacyUpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
-        legacyUpdatePixel(screen,pixels[initialx][initialy+i+1],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+3],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+i+1][initialy+6],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx][initialy+i+1],colour)
     for i in range(1,6):
-        legacyUpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
+        pl.LEGACY_UpdatePixel(screen,pixels[initialx+3][initialy+i],colour)
 
 def debugDRAWALL(screen,pixels,colour):
     drawChar('A',screen,pixels,colour,[0,0])

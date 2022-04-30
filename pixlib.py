@@ -82,7 +82,7 @@ class pixlib():
                     for c in range(self.visualStates[self.currentState][a][b][0]):
                         self.pixels[self.x+linepos][self.y+a].updatePixel(self.window,self.visualStates[self.currentState][a][b][1])
 
-class pixlibObject():
+class pix_object():
     def __init__(self,aposition,aheight,awidth,**kwargs):
         self.x, self.y = aposition
         self.height = aheight
@@ -130,3 +130,10 @@ class pixlibObject():
                     for c in range(self.visualStates[self.currentState][a][b][0]):
                         pixels[self.x+linepos][self.y+a].updatePixel(screen,self.visualStates[self.currentState][a][b][1])
 
+def LEGACY_UpdatePixel(canvas,pixel,acolour):
+    pixel.image.fill(color=acolour)
+    if len(acolour) == 4:
+        pixel.r,pixel.g,pixel.b,pixel.a = acolour
+    else:
+        pixel.r,pixel.g,pixel.b = acolour
+    canvas.blit(pixel.image,pixel.Rect)
