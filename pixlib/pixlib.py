@@ -19,7 +19,7 @@ class pixel(pg.sprite.Sprite):
             self.r,self.g,self.b = acolour
         canvas.blit(self.image,self.Rect)
 
-class states_root():
+class states_root(): # ! THIS CLASS SHOULD NEVER BE DIRECTLY USED. IT IS LITERALLY JUST FOR INHERITANCE
     def __init__(self,states) -> None:
         self.visualStates = states
         self.currentState = states['main']
@@ -50,7 +50,7 @@ class states_root():
         else:
             self.visualStates[statename] = newStateVal
 
-    def draw(self):
+    def draw(self,canvas,pixels,xoffset,yoffset):
         for a in range(len(self.visualStates[self.currentState])):
             for b in range(len(self.visualStates[self.currentState][a])):
                 linepos = 0
@@ -58,15 +58,14 @@ class states_root():
                     linepos = linepos+self.visualStates[self.currentState][a][b][0]
                 else:
                     for c in range(self.visualStates[self.currentState][a][b][0]):
-                        self.pixels[self.x+linepos][self.y+a].updatePixel(self.window,self.visualStates[self.currentState][a][b][1])
+                        pixels[xoffset+linepos][yoffset+a].updatePixel(canvas,self.visualStates[self.currentState][a][b][1])
 
 class pix_canvas(states_root):
-    def __init__(self,windowWidth,windowHeight,pixelsize,states):
-        self.windowDim = [windowWidth,windowHeight]
-        self.pixarrayDim = [windowWidth//pixelsize,windowHeight//pixelsize]
+    def __init__(self,canvasWidth,canvasHeight,pixelsize,states):
+        self.canvasDim = [canvasWidth,canvasHeight]
+        self.pixarrayDim = [canvasWidth//pixelsize,canvasHeight//pixelsize]
         self.pixelsize = pixelsize
         self.pixels = self.__initPixelarray__()
-        self.window = pg.display.set_mode((windowWidth, windowHeight))
         self.pixelsize = pixelsize
         super().__init__(states)
         self.currentState = ''
@@ -75,17 +74,20 @@ class pix_canvas(states_root):
 
     def __initPixelarray__(self):
         pixels = []
-        for i in range(0,self.windowDim[0],self.pixelsize):
+        for i in range(0,self.canvasDim[0],self.pixelsize):
             column = []
-            for x in range(0,self.windowDim[1],self.pixelsize):
+            for x in range(0,self.canvasDim[1],self.pixelsize):
                 column.append(pixel(i,x,self.pixelsize,(0,0,0,255)))
             pixels.append(column)
         return pixels
 
-    def drawBasicBG(self,colour):
+    def drawBasicBG(self,colour,canvas):
         for i in range(0,self.pixarrayDim[0]):
             for x in range(0,self.pixarrayDim[1]):
-                self.pixels[i][x].updatePixel(self.window,colour)
+                self.pixels[i][x].updatePixel(canvas,colour)
+
+    def draw(self,canvas,pixels):
+        super().draw(canvas,pixels,0,0)
 
 class pix_sprite(states_root):
     def __init__(self,aposition,aheight,awidth,states):
@@ -95,19 +97,12 @@ class pix_sprite(states_root):
         super().__init__(states)
         self.currentState = ''
 
-    def updatePos(self,screen,pixels,aposition):
+    def updatePos(self,canvas,pixels,aposition):
         self.x, self.y = aposition
-        self.draw(screen,pixels)
+        self.draw(canvas,pixels)
 
-    def draw(self,screen,pixels):
-        for a in range(len(self.visualStates[self.currentState])):
-            for b in range(len(self.visualStates[self.currentState][a])):
-                linepos = 0
-                if self.visualStates[self.currentState][a][b][1] == None:
-                    linepos = linepos+self.visualStates[self.currentState][a][b][0]
-                else:
-                    for c in range(self.visualStates[self.currentState][a][b][0]):
-                        pixels[self.x+linepos][self.y+a].updatePixel(screen,self.visualStates[self.currentState][a][b][1])
+    def draw(self,canvas,pixels):
+        super().draw(canvas,pixels,self.x,self.y)
 
 def LEGACY_UpdatePixel(canvas,pixel,acolour):
     pixel.image.fill(color=acolour)
