@@ -211,11 +211,6 @@ def about(specific = ''):
         Characters will therefore have a standard width of 4 pixels, however some symbols and lower case characters may diverge from this.
         Characters will also have a standard height of 7 pixels, although some symbols may exceed this. A recommended spacing between lines of text is 
         """)
-    elif specific == 'help':
-        print("""List of 'Help' Functions
-            - About This Library: ''
-            - Help: Well you're already here dummy
-            - List of Edge Cases: 'edge cases'""")
 
 #charWidths = {'A': 4,'B': 4,'C': 3,'D': 4,'E': 3,'F': 3,'G': 4,'H': 4,'I': 3,'J': 4,'K': 4,'L': 3,'M': 5,'N': 4,'O': 4,'P': 4,'Q': 4,'R': 4,'S': 3,'T': 3,'U': 4,'V': 5,'W': 5,'X': X,'Y': Y,'Z': Zthree,'Z3': Zthree,'Z5': Zfive,
 #        #Letters (Lower Case)
@@ -233,7 +228,6 @@ def drawChar(char,screen,pixels,colour,initpos):
         '0': O,'zero': O,'1': one,'one': one,'2': two,'two': two,'3': three,'three': three,'4': four,'four': four,'4diag': fourDiag,'fourdiag': fourDiag,'5': five,'five': five,'6': six,'six': six,'7': seven,'seven': seven,'8': eight,'eight': eight,'9': nine,'nine': nine,
         #Symbols
     }
-
 
     for key in supportedChars:
         if key == char:
